@@ -19,3 +19,17 @@ test('find the date in the page', async ({page}) => {
     const locator = page.locator('#todaysDateDiv');
     await expect(locator).toBeVisible();
 });
+
+test('Enter search term', async ({page}) => {
+    // enter the term 'lotus notes' into the search bar, click 'Search'
+    await page.getByPlaceholder('Enter what (or who) to search').fill('lotus notes');
+    await page.getByRole('button', {name: 'Go'}).click();
+    await page.screenshot({path: 'searchScreenshot.png'});
+});
+
+test('validate 100 year countdown element', async ({page}) => {
+    // there is an element on the homepage that has the 100 year countdown clock in it
+    const locator = page.locator('#graco-timer');
+    await expect(locator).toBeVisible();
+});
+
