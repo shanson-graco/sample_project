@@ -77,3 +77,6 @@ module.exports = defineConfig({
   // },
 });
 
+export default defineConfig({
+  reporter: [["line"], ["allure-playwright"]],
+});

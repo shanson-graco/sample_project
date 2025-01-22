@@ -20,11 +20,11 @@ test('find the date in the page', async ({page}) => {
     await expect(locator).toBeVisible();
 });
 
-test('Enter search term', async ({page}) => {
+test('Enter search term', async ({page}, testInfo) => {
     // enter the term 'lotus notes' into the search bar, click 'Search'
     await page.getByPlaceholder('Enter what (or who) to search').fill('lotus notes');
     await page.getByRole('button', {name: 'Go'}).click();
-    await page.screenshot({path: 'searchScreenshot.png'});
+    await page.screenshot(testInfo.outputPath('./screenshots/' + testInfo.title + '_screenshot.png')); 
 });
 
 test('validate 100 year countdown element', async ({page}) => {
